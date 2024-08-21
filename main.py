@@ -7,8 +7,7 @@ from sklearn.metrics import accuracy_score
 from sklearn.tree import DecisionTreeClassifier
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.neural_network import MLPClassifier
-df = sns.load_dataset('iris')
-df
+
 
 # split train test from x, y test size = 0.2
 # use k-nearest neighbors to classify x_train, y_train
@@ -39,6 +38,9 @@ nn = MLPClassifier()
 nn.fit(x_train, y_train)
 y_pred = nn.predict(x_test)
 accuracy_score(y_test, y_pred)
+
+df = sns.load_dataset('iris')
+df
 
 # create sidebar menu for user can select classifiers
 classifier = st.sidebar.selectbox('Classifier', ('KNN', 'SVM', 'Decision Tree', 'Random Forest', 'Neural Network'))
