@@ -29,6 +29,7 @@ if classifier == 'KNN':
   svm.fit(x_train, y_train)
   y_pred = svm.predict(x_test)
   accuracy_score(y_test, y_pred)
+  st.write(acc)
 
 if classifier == 'SVM':
   # use dicision tree to classify x_train, y_train
