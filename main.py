@@ -20,6 +20,7 @@ x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=0.2)
 
 # create sidebar menu for user can select classifiers
 classifier = st.sidebar.selectbox('Classifier', ('KNN', 'SVM', 'Decision Tree', 'Random Forest', 'Neural Network'))
+k = st.sidebar.slider('K', 1, 120, 3)
 
 if classifier == 'KNN':
   knn = KNeighborsClassifier(n_neighbors=3) # 20% of maximum train number
@@ -28,7 +29,7 @@ if classifier == 'KNN':
   svm = SVC()
   svm.fit(x_train, y_train)
   y_pred = svm.predict(x_test)
-  accuracy_score(y_test, y_pred)
+  acc = accuracy_score(y_test, y_pred)
   st.write(acc)
 
 if classifier == 'SVM':
@@ -36,21 +37,24 @@ if classifier == 'SVM':
   dt = DecisionTreeClassifier()
   dt.fit(x_train, y_train)
   y_pred = dt.predict(x_test)
-  accuracy_score(y_test, y_pred)
+  acc = accuracy_score(y_test, y_pred)
+  st.write(acc)
 
 if classifier == 'Random Forest':
 # use random forest to classify x_train, y_train
   rf = RandomForestClassifier()
   rf.fit(x_train, y_train)
   y_pred = rf.predict(x_test)
-  accuracy_score(y_test, y_pred)
+  acc = accuracy_score(y_test, y_pred)
+  st.write(acc)
 
 if classifier == 'Neural Network':
 # use NN to classify x_train, y_train
   nn = MLPClassifier()
   nn.fit(x_train, y_train)
   y_pred = nn.predict(x_test)
-  accuracy_score(y_test, y_pred)
+  acc = accuracy_score(y_test, y_pred)
+  st.write(acc)
 
 
 
